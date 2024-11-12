@@ -274,6 +274,88 @@ server.post('/delete', async (req, res) => {
     }
 })
 
+server.post('/modify', async (req, res) => {
+    //console.log(req.body);
+    console.log(req.body);
+    const { city } = req.query;
+    const { name, price, stock } = req.body;
+
+    if(Object.keys(req.body).length === 0) {
+        console.error("No data collected from user");
+        res.status(500).send("req.body error");
+    }
+    else if (city === "Tampere") {
+        const con = new Client({
+            host: "localhost",
+            user: "postgres",
+            port: 5432,
+            password: "Admin",
+            database: "TampereSQL"
+        });
+
+        try {
+            await con.connect();
+
+            if(stock === "" & price != ""){
+                await con.query( 'UPDATE flowers set price = $1 WHERE name = $2', [price, name]);
+                res.json({message: "Price data updated into PostgreSQL in Tampere"});
+            }
+            else if(price === "" & stock != ""){
+                await con.query( 'UPDATE flowers set stock = $1 WHERE name = $2', [stock, name]);
+                res.json({message: "Stock data updated into PostgreSQL in Tampere"});
+            }
+            else{
+                await con.query( 'UPDATE flowers set price = $1, stock = $2 WHERE name = $3', [price, stock, name]);
+                res.json({message: "Stock and price data updated into PostgreSQL in Tampere"});
+            }
+            
+        }
+        catch (err){
+            console.error("Error deleting from PostgreSQL:", err);
+            res.status(500).send("Database error: "+ err.message);
+        } finally {
+            await con.end();
+        }
+    } else if (city === "Lahti") {
+       try {
+            await mongoose.connect('mongodb://localhost:27017/LahtiNoSQL');
+            console.log(`Connected to MongoDB database for Lahti`);
+
+            const Flowers = mongoose.models.Flowers || mongoose.model('Flowers', flowerSchema);
+            const updateFields = {};
+            if (price !== "") updateFields.price = price;
+            if (stock !== "") updateFields.stock = stock;
+            
+            if (Object.keys(updateFields).length > 0) {
+                const result = await Flowers.updateOne({ name: name }, { $set: updateFields });
+
+                if (result.modifiedCount === 0) {
+                    res.json({ message: `No plant found with name "${name}" to update in Lahti.` });
+                } else {
+                    res.json({ message: `Plant with name "${name}" updated in MongoDB in Lahti.` });
+                }
+            } else {
+                res.status(400).json({ message: "No valid fields to update." });
+            }
+            /*     const result = await Flowers.deleteOne({ name: name });
+
+            if (result.deletedCount === 0){
+                 res.json({ message: `In ${city} there is no plant named `+ name});
+            }
+            else{
+                res.json({message: `Data deleted from MongoDB in Lahti with name "${name}"`})
+            }*/
+           
+        }
+        catch (err) {
+            console.error("Error inserting into MongoDB:", err);
+            res.status(500).send("Database error: " + err.message);
+        } finally {
+            await mongoose.disconnect();
+        }
+    }
+})
+
 server.get('/', (reg, res) => {
     res.send('Flower Shop');
 });

@@ -178,3 +178,57 @@ async function deleteData(city){
 function checkIfExisting(database, name){
     return database.some(flower => flower.name.toLowerCase() === name.toLowerCase());
 }
+
+async function modifyData(city) {
+    const name = document.getElementById("modifyName").value;
+    const price = document.getElementById("newPrice").value;
+    const stock = document.getElementById("newStock").value;
+
+    console.log(name);
+    console.log(price);
+    console.log(stock);
+
+    if (!name) {
+        alert("Please fill name field.");
+        return;
+    }
+    if (stock < 0){
+        stock = 0
+    }
+
+    if (price === "" & stock === ""){
+        alert("Please fill atleast one of the updatable values");
+        return
+    }
+
+    const response = await fetch(`/city?name=${encodeURIComponent(city)}`, {
+        method: "GET"
+        });
+    const data = await response.json();
+
+    if (checkIfExisting(data, name)){
+        try {
+        await fetch(`/modify?city=${encodeURIComponent(city)}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, price, stock })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("data modified for:" , name);
+            alert("Data modified successfully");
+            document.getElementById("modifyForm").reset();
+        })
+        
+        }catch(error) {
+            console.error("Error:", error);
+        };
+    }
+    else{
+        console.log("no flower: " + name)
+    }
+    
+
+}
