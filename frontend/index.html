@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Flower Shop</title>
+</head>
+
+<body>
+    <h1>Welcome to the FLOWER SHOP</h1>
+    <div id="buttonsContainer">
+        <button onclick="selectCity('Lahti')">Lahti</button>
+        <button onclick="selectCity('Tampere')">Tampere</button>
+        <button onclick="selectCity('Both')">Join tables</button>
+    </div>
+    
+    <p id="data"></p>
+
+    <div id="citydata">
+        <h2 id="header">Choose City to see their data</h2>
+        <div id="tableContainer">
+            
+        </div>
+    </div>
+
+    <div id="InsertContianer">
+        <h2>Inser data to database</h2>
+        <div id="formatcontianer">
+            <form id="insertForm">
+                <label for="name">Name of plant</label>
+                <input type="text" id="name" name="name">  <br>
+                <label for="price">price of palnt in fomr '0e'</label>
+                <input type="text" id="price" name="price"> <br>
+                <label for="stock">Numbers in stock</label>
+                <input type="number" id="stock" name="stock" min="0"> <br><br>
+            </form>
+        </div>
+
+        <div id="insertButtonsContainer">
+            <button onclick="insertData('Lahti')">Lahti</button>
+            <button onclick="insertData('Tampere')">Tampere</button>
+        </div>
+    </div>
+    
+
+    <div id="deleteContianer">
+        <h2>Delete data to database</h2>
+        <p>Give name of plant you want to delete from choosed location</p>
+        <div id="formatcontianer">
+            <form id="deleteForm">
+                <label for="deleteName">Name of plant</label>
+                <input type="text" id="deleteName" name="deleteName">  <br><br>
+            </form>
+        </div>
+        <div id="deleteButtonsContainer">
+            <button onclick="deleteData('Lahti')">Lahti</button>
+            <button onclick="deleteData('Tampere')">Tampere</button>
+        </div>
+    </div>
+    
+    <div id="modifyContianer">
+        <h2>Modify data to database</h2>
+        <div id="modifyButtonsContainer">
+            <button>Lahti</button>
+            <button>Tampere</button>
+        </div>
+    </div>
+    
+
+
+
+    <footer>
+        <p>&copy; 2024 Flower Shop.</p>
+    </footer>
+   
+</body>
+</html>
