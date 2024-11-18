@@ -1,0 +1,120 @@
+/* Generated wiht ChatGPT */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #85b87b;
+    color: #2e5027;
+}
+
+h1 {
+    text-align: center;
+    color: #2e5027;
+}
+
+footer {
+    background-color: #2e5027;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    position: relative;
+    bottom: 0;
+}
+
+/* Containers */
+#buttonsContainer {
+    text-align: center;
+    margin: 20px;
+}
+
+#citydata, #InsertContianer, #deleteContianer, #modifyContianer {
+    margin: 20px;
+    padding: 20px;
+    background-color: #54835786;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #235815;
+    
+}
+
+#citydata {
+    margin-top: 30px;
+}
+
+/* Form elements */
+form {
+    margin-bottom: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin-bottom: 15px;
+}
+
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.form-row label {
+    width: 200px;
+}
+
+.form-row input {
+    flex: 1;
+    max-width: 200px; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #f2b0ff;
+    color: #86178a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b486bd;
+}
+
+/* Table styling */
+#tableContainer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #ebc3f3;
+    border: 2px solid #2e5027;;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #2e5027;
+    text-align: center;
+}
+
+th {
+    background-color: #e995fa;
+    color: #86178a;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f0f0;
+}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="index.js"></script>
     <title>Flower Shop</title>
 </head>
@@ -26,14 +27,23 @@
 
     <div id="InsertContianer">
         <h2>Inser data to database</h2>
-        <div id="formatcontianer">
+        <div class="form-container">
             <form id="insertForm">
-                <label for="name">Name of plant</label>
-                <input type="text" id="name" name="name">  <br>
-                <label for="price">price of palnt in fomr '0e'</label>
-                <input type="text" id="price" name="price"> <br>
-                <label for="stock">Numbers in stock</label>
-                <input type="number" id="stock" name="stock" min="0"> <br><br>
+                <div class="form-row">
+                    <label for="name">Name of plant</label>
+                    <input type="text" id="name" name="name"> 
+                </div>
+
+                <div class="form-row">
+                    <label for="price">price of palnt in fomr '0e'</label>
+                    <input type="text" id="price" name="price"> 
+                </div>
+                
+                <div class="form-row">
+                    <label for="stock">Numbers in stock</label>
+                    <input type="number" id="stock" name="stock" min="0"> 
+                </div>
+                
             </form>
         </div>
 
@@ -47,10 +57,13 @@
     <div id="deleteContianer">
         <h2>Delete data to database</h2>
         <p>Give name of plant you want to delete from choosed location</p>
-        <div id="formatcontianer">
+        <div class="form-container">
             <form id="deleteForm">
-                <label for="deleteName">Name of plant</label>
-                <input type="text" id="deleteName" name="deleteName">  <br><br>
+                <div class="form-row">
+                    <label for="deleteName">Name of plant</label>
+                    <input type="text" id="deleteName" name="deleteName"> 
+                </div>
+               
             </form>
         </div>
         <div id="deleteButtonsContainer">
@@ -62,15 +75,21 @@
     <div id="modifyContianer">
         <h2>Modify data to database</h2>
         <p>Give name of plant you want to modify from choosed location</p>
-        <div id="formatcontianer">
+        <div class="form-container">
             <form id="modifyForm">
-                <label for="modifyName">Name of plant</label>
-                <input type="text" id="modifyName" name="modifyName">  <br>
+                <div class="form-row">
+                    <label for="modifyName">Name of plant</label>
+                    <input type="text" id="modifyName" name="modifyName"> 
+                </div>
                 <p>Give updatable value to price and/or stock</p>
-                <label for="newPrice">New price of plant</label>
-                <input type="text" id="newPrice" name="newPrice">  <br>
-                <label for="newStock">new number in stock</label>
-                <input type="number" id="newStock" name="newStock" minimum="0">  <br><br>
+                <div class="form-row">
+                    <label for="newPrice">New price of plant</label>
+                    <input type="text" id="newPrice" name="newPrice"> 
+                </div>
+                <div class="form-row">
+                    <label for="newStock">new number in stock</label>
+                    <input type="number" id="newStock" name="newStock" minimum="0">
+                </div>                
             </form>
         </div>
         <div id="modifyButtonsContainer">
