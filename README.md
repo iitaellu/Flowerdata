@@ -1,4 +1,4 @@
-# Flower Shop
+# Flower Data
 
 This is a simple exercise of distributed database system with SQL (PgAdmin 4) and NoSQL (MongoDB) system. There is used two similar databases, which each include 1 table in each and each of them 5 rows of data. In front-end user can choose database location by pressing button, and software prints tables from choosed database to front end but can also join tables and summarize same stocks together.
 User can also insert, delete and modify data from each databases.
