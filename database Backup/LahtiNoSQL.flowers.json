@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6731e461f79e7eddd709776d"
+  },
+  "id": 1,
+  "name": "Jade plant",
+  "price": "20e",
+  "stock": 8
+},
+{
+  "_id": {
+    "$oid": "6731e461f79e7eddd709776e"
+  },
+  "id": 2,
+  "name": "Snake plant",
+  "price": "22e",
+  "stock": 2
+},
+{
+  "_id": {
+    "$oid": "6731e461f79e7eddd709776f"
+  },
+  "id": 4,
+  "name": "Cactus",
+  "price": "13e",
+  "stock": 7
+},
+{
+  "_id": {
+    "$oid": "6731e461f79e7eddd7097770"
+  },
+  "id": 5,
+  "name": "Houseleek",
+  "price": "25e",
+  "stock": 11
+},
+{
+  "_id": {
+    "$oid": "6731e461f79e7eddd7097771"
+  },
+  "id": 7,
+  "name": "Spider plant",
+  "price": "10e",
+  "stock": 7
+}]
